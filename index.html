@@ -949,7 +949,7 @@ small:100,medium:0,large:0}&gt;&gt;
 [[繼續|戰鬥序2]]
 &lt;&lt;set $largeHP to 2000&gt;&gt;
 &lt;&lt;set $largeHPmax to 2000&gt;&gt;
-&lt;&lt;set $escapeChance to 101&gt;&gt;
+&lt;&lt;set $escapeChance to 0&gt;&gt;
 &lt;&lt;set $fightingPlace to &quot;戰鬥序2&quot;&gt;&gt;
 &lt;&lt;set $state.place to &quot;戰鬥序3&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="42" name="戰鬥序2" tags="主線 大型戰鬥" position="2800,2000" size="100,100">&lt;&lt;if $state.fear &lt; 10000&gt;&gt;
 	&lt;&lt;if $largeHP &gt;0&gt;&gt;\
@@ -1763,7 +1763,7 @@ small:100,medium:0,large:0}&gt;&gt;
 &lt;&lt;set $note to $note.delete(&quot;度音有事請你去他的辦公室報到&quot;)&gt;&gt;</tw-passagedata><tw-passagedata pid="97" name="筆記本" tags="" position="700,1300" size="100,100">每個禮拜日23:59之前要繳交指定數量的蟑螂
 &lt;&lt;= $note.join(&#39;&lt;br&gt;&#39;)&gt;&gt;
 </tw-passagedata><tw-passagedata pid="98" name="大型逃跑" tags="" position="2900,1800" size="100,100">&lt;&lt;set _escape to random(1,100)&gt;&gt;
-&lt;&lt;if _escape &gt;$escapeChance&gt;&gt;
+&lt;&lt;if _escape &lt; $escapeChance&gt;&gt;
 	&lt;&lt;goto &quot;逃跑&quot;&gt;&gt;
 &lt;&lt;else&gt;&gt;
 	&lt;&lt;set $state.exhaustion +=40&gt;&gt;
@@ -2077,7 +2077,7 @@ IUASDO滅蟑部
 &lt;&lt;link &quot;繼續&quot;&gt;&gt;
 	&lt;&lt;goto $state.place&gt;&gt;
     &lt;&lt;set $hour += 3&gt;&gt;
-    &lt;&lt;set $state.exhaustion -= 2500&gt;&gt;
+    &lt;&lt;set $state.exhaustion += 2500&gt;&gt;
 	&lt;&lt;set $state.hunger -= 2700&gt;&gt;
 	&lt;&lt;set $state.ration -= 1000&gt;&gt;
 	&lt;&lt;set $state.pressure += 2000&gt;&gt;
